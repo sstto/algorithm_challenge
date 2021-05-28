@@ -13,18 +13,20 @@ Dag::Dag(const Graph &query, const CandidateSet &cs) {
     size_t factor = cs.GetCandidateSize(0)/query.GetDegree(0);
     for (size_t i = 0; i < num_vertices_; ++i) {
         if (factor > cs.GetCandidateSize(i)/query.GetDegree(i)){
+            factor = cs.GetCandidateSize(i)/query.GetDegree(i);
             root_vertex = i;
         }
     }
-
+    std::cout << "root is " << root_vertex << std::endl;
     visited.resize(num_vertices_,false);
     std::vector<bool> qVisited(num_vertices_, false);
     //make dag using bfs.
     adj_list.resize(num_vertices_);
 
-    for(size_t i = 0; i<2*query.GetNumEdges();i++){
-        std::cout << query.GetNeighbor(i) <<std::endl;
-    }
+    // check adjarray of query
+//    for(size_t i = 0; i<2*query.GetNumEdges();i++){
+//        std::cout << query.GetNeighbor(i) <<std::endl;
+//    }
 
     std::queue<size_t> q;
     q.push(root_vertex);
