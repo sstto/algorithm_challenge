@@ -17,6 +17,30 @@ Dag::Dag(const Graph &query, const CandidateSet &cs) {
         }
     }
 
+    visited.resize(num_vertices_,false);
+
+    //make dag using bfs.
+    adj_list.resize(num_vertices_);
+
+    std::queue<size_t> q;
+    q.push(root_vertex);
+
+    while(!q.empty()){
+        size_t x = q.front();
+        q.pop();
+        visited[x] = true;
+        size_t startOffset = query.GetNeighborStartOffset(x);
+        size_t endOffset = query.GetNeighborEndOffset(x);
+
+        for(size_t i = startOffset; i< endOffset;i++){ //check i <= or <
+            size_t v_visit = query.GetNeighbor(i);
+            if (!visited[v_visit]){
+                adj_list[x].push_back(v_visit);
+                q.push(v_visit);
+            }
+        }
+    }
+
 
 
 }
@@ -37,3 +61,8 @@ size_t Dag::GetNumLabels() const {
     return num_labels_;
 }
 
+
+//void Dag::bfs(const Vertex &v, const Graph& query) {
+//
+//
+//}
