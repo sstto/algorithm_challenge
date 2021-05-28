@@ -20,6 +20,7 @@ public:
     inline size_t GetNumVertices() const;
     inline size_t GetNumEdges() const;
     inline size_t GetNumLabels() const;
+    void printAdjList();
 //    void bfs(const Vertex& v, const Graph& query);
 private:
     int32_t graph_id_;
