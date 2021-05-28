@@ -199,6 +199,33 @@ __/src/candidate_set.cc.s:
 	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/candidate_set.cc.s
 .PHONY : __/src/candidate_set.cc.s
 
+__/src/dag.o: __/src/dag.cpp.o
+
+.PHONY : __/src/dag.o
+
+# target to build an object file
+__/src/dag.cpp.o:
+	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/dag.cpp.o
+.PHONY : __/src/dag.cpp.o
+
+__/src/dag.i: __/src/dag.cpp.i
+
+.PHONY : __/src/dag.i
+
+# target to preprocess a source file
+__/src/dag.cpp.i:
+	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/dag.cpp.i
+.PHONY : __/src/dag.cpp.i
+
+__/src/dag.s: __/src/dag.cpp.s
+
+.PHONY : __/src/dag.s
+
+# target to generate assembly for a file
+__/src/dag.cpp.s:
+	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/dag.cpp.s
+.PHONY : __/src/dag.cpp.s
+
 __/src/graph.o: __/src/graph.cc.o
 
 .PHONY : __/src/graph.o
@@ -268,6 +295,9 @@ help:
 	@echo "... __/src/candidate_set.o"
 	@echo "... __/src/candidate_set.i"
 	@echo "... __/src/candidate_set.s"
+	@echo "... __/src/dag.o"
+	@echo "... __/src/dag.i"
+	@echo "... __/src/dag.s"
 	@echo "... __/src/graph.o"
 	@echo "... __/src/graph.i"
 	@echo "... __/src/graph.s"

@@ -86,6 +86,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/include/dag.h">
+			<Option target="program"/>
+		</Unit>
 		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/main.cc">
 			<Option target="program"/>
 		</Unit>
@@ -93,6 +96,12 @@
 			<Option target="program"/>
 		</Unit>
 		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/candidate_set.cc">
+			<Option target="program"/>
+		</Unit>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/dag.cpp">
+			<Option target="program"/>
+		</Unit>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/dag.h">
 			<Option target="program"/>
 		</Unit>
 		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/graph.cc">
