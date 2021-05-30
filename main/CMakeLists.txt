@@ -1,1 +1,1 @@
-add_executable(program main.cc ${SOURCES} ../include/dag.h ../src/dag.cc)
+add_executable(program main.cc ${SOURCES} ../include/dag.h ../src/dag.cc ../src/candidate_space.cc)

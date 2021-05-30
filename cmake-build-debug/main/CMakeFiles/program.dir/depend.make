@@ -11,6 +11,12 @@ main/CMakeFiles/program.dir/__/src/candidate_set.cc.o: ../include/candidate_set.
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.o: ../include/common.h
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.o: ../src/candidate_set.cc
 
+main/CMakeFiles/program.dir/__/src/dag.cc.o: ../include/candidate_set.h
+main/CMakeFiles/program.dir/__/src/dag.cc.o: ../include/common.h
+main/CMakeFiles/program.dir/__/src/dag.cc.o: ../include/dag.h
+main/CMakeFiles/program.dir/__/src/dag.cc.o: ../include/graph.h
+main/CMakeFiles/program.dir/__/src/dag.cc.o: ../src/dag.cc
+
 main/CMakeFiles/program.dir/__/src/graph.cc.o: ../include/common.h
 main/CMakeFiles/program.dir/__/src/graph.cc.o: ../include/graph.h
 main/CMakeFiles/program.dir/__/src/graph.cc.o: ../src/graph.cc
@@ -18,6 +24,7 @@ main/CMakeFiles/program.dir/__/src/graph.cc.o: ../src/graph.cc
 main/CMakeFiles/program.dir/main.cc.o: ../include/backtrack.h
 main/CMakeFiles/program.dir/main.cc.o: ../include/candidate_set.h
 main/CMakeFiles/program.dir/main.cc.o: ../include/common.h
+main/CMakeFiles/program.dir/main.cc.o: ../include/dag.h
 main/CMakeFiles/program.dir/main.cc.o: ../include/graph.h
 main/CMakeFiles/program.dir/main.cc.o: ../main/main.cc
 

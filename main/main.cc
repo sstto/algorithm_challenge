@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
   dag.printAdjList();
 //  Backtrack backtrack;
 
-//  backtrack.PrintAllMatches(data, query, candidate_set);
+//  backtrack.PrintAllMatches(data, query, candidate_set, dag);
 
   return EXIT_SUCCESS;
 }

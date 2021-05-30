@@ -36,11 +36,23 @@ utility
 vector
 -
 
+../include/dag.h
+common.h
+../include/common.h
+graph.h
+../include/graph.h
+candidate_set.h
+../include/candidate_set.h
+queue
+-
+
 ../include/graph.h
 common.h
 ../include/common.h
 
 /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/main.cc
+dag.h
+-
 backtrack.h
 /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/backtrack.h
 candidate_set.h
@@ -50,15 +62,7 @@ common.h
 graph.h
 /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/graph.h
 
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/backtrack.cc
-backtrack.h
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/backtrack.h
-
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/candidate_set.cc
-candidate_set.h
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/candidate_set.h
-
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/graph.cc
-graph.h
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/graph.h
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/dag.cc
+dag.h
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/dag.h
 

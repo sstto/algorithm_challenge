@@ -11,6 +11,12 @@ main/CMakeFiles/program.dir/__/src/candidate_set.cc.o
  ../include/candidate_set.h
  ../include/common.h
  /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/candidate_set.cc
+main/CMakeFiles/program.dir/__/src/dag.cc.o
+ ../include/candidate_set.h
+ ../include/common.h
+ ../include/dag.h
+ ../include/graph.h
+ /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/dag.cc
 main/CMakeFiles/program.dir/__/src/graph.cc.o
  ../include/common.h
  ../include/graph.h
@@ -19,5 +25,6 @@ main/CMakeFiles/program.dir/main.cc.o
  ../include/backtrack.h
  ../include/candidate_set.h
  ../include/common.h
+ ../include/dag.h
  ../include/graph.h
  /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/main.cc

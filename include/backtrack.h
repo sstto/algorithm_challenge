@@ -16,7 +16,7 @@ class Backtrack {
   ~Backtrack();
 
   void PrintAllMatches(const Graph &data, const Graph &query,
-                       const CandidateSet &cs);
+                       const CandidateSet &cs, const Dag &dag);
 };
 
 #endif  // BACKTRACK_H_

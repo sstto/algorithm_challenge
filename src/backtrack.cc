@@ -3,9 +3,12 @@
  *
  */
 
+#include <dag.h>
 #include "backtrack.h"
 
-Backtrack::Backtrack() {}
+Backtrack::Backtrack() {
+    Dag dag(query, candidate_set);
+}
 Backtrack::~Backtrack() {}
 
 void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
