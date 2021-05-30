@@ -50,6 +50,12 @@ Dag::Dag(const Graph &query, const CandidateSet &cs) {
             }
         }
     }
+    adj_list_inv.resize(num_vertices_);
+    for (size_t i = 0; i<num_vertices_;i++){
+        for (size_t j = 0; j<adj_list[i].size(); j++){
+            adj_list_inv[adj_list[i][j]].push_back(i);
+        }
+    }
 
 
 

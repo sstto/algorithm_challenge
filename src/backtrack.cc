@@ -31,16 +31,34 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 
 void Backtrack::backtracking(const Vertex &u, const size_t &c, const Graph &data, const Graph &query, const CandidateSet &cs, const Dag &dag,
                              std::vector<size_t> visited) {
-    //std::vector<size_t> candidateSetOfU = cs.GetCandidate(u,0 ~ #GetCandidateSize(u));
-        // find edge of candidate space
 
     for(size_t j = 0; j<dag.GetDirectedNeighborSize(u); j++){
         Vertex u2 = dag.GetDirectedNeighbor(u)[j];
+        std::vector<size_t> parentOfU2 = dag.GetInvDirectedNeighbor(u2);
+        size_t parentOfU2Size = dag.GetInvDirectedNeighborSize(u2);
         for(size_t k = 0; k<cs.GetCandidateSize(u2); k++){
             size_t next_c = cs.GetCandidate(u2, k);
-            if(data.IsNeighbor(c,next_c)){
-                //1,3 조건 통과
 
+            // condition 3 : check the edge of candidate space
+            bool condition3 = data.IsNeighbor(c,next_c);
+            if(condition3){
+                for(size_t l = 0; l<parentOfU2Size; l++){
+                    condition3 = data.IsNeighbor(visited[parentOfU2[l]], next_c);
+                    if(!condition3) break;
+                }
+            }
+
+            // condition 1
+            bool condition1 = true;
+            for(size_t i = 0; i<visited.size(); i++) {
+                if(visited[i] == next_c){
+                    condition1 = false;
+                    break;
+                }
+            }
+            //condition3
+
+            if(condition1 & condition3){
                 visited[u2] = next_c;
                 backtracking(u2, next_c, data, query, cs, dag, visited);
             }
@@ -48,7 +66,7 @@ void Backtrack::backtracking(const Vertex &u, const size_t &c, const Graph &data
 
     }
 
-    }
+
 }
 
 

@@ -22,6 +22,8 @@ public:
     inline size_t GetNumLabels() const;
     inline std::vector<size_t> GetDirectedNeighbor(Vertex v) const;
     inline size_t GetDirectedNeighborSize(Vertex v) const;
+    inline std::vector<size_t> GetInvDirectedNeighbor(Vertex v) const;
+    inline size_t GetInvDirectedNeighborSize(Vertex v) const;
     inline Vertex GetRootVertex() const;
     void printAdjList();
 //    void bfs(const Vertex& v, const Graph& query);
@@ -34,6 +36,7 @@ private:
     Vertex root_vertex;
 
     std::vector<std::vector<size_t>> adj_list;
+    std::vector<std::vector<size_t>> adj_list_inv;
     std::vector<bool> visited;
 };
 inline std::vector<size_t> Dag::GetDirectedNeighbor(Vertex v) const{
@@ -44,6 +47,12 @@ inline Vertex Dag::GetRootVertex() const{
 }
 inline size_t Dag::GetDirectedNeighborSize(Vertex v) const{
     return adj_list[v].size();
+}
+inline std::vector<size_t> Dag::GetInvDirectedNeighbor(Vertex v) const{
+    return adj_list_inv[v];
+}
+inline size_t Dag::GetInvDirectedNeighborSize(Vertex v) const{
+    return adj_list_inv[v].size();
 }
 
 #endif //SUBGRAPH_MATCHING_DAG_H
