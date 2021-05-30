@@ -24,12 +24,9 @@ int main(int argc, char* argv[]) {
   Graph query(query_file_name, true);
   CandidateSet candidate_set(candidate_set_file_name);
 
-  Dag dag(query, candidate_set);
+  Backtrack backtrack;
 
-  dag.printAdjList();
-//  Backtrack backtrack;
-
-//  backtrack.PrintAllMatches(data, query, candidate_set, dag);
+  backtrack.PrintAllMatches(data, query, candidate_set);
 
   return EXIT_SUCCESS;
 }
