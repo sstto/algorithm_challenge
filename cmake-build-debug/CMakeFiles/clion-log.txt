@@ -1,6 +1,29 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G "CodeBlocks - Unix Makefiles" "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2"
 -- Configuring done
-CMake Error: Cannot determine link language for target "CMakeLists".
-CMake Error: CMake can not determine linker language for target: CMakeLists
--- Generating done
+CMake Error at CMakeLists.txt:14 (add_executable):
+  Cannot find source file:
+
+    include/candidate_space.h
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at main/CMakeLists.txt:1 (add_executable):
+  Cannot find source file:
+
+    ../src/candidate_space.cc
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:14 (add_executable):
+  No SOURCES given to target: CMakeLists
+
+
+CMake Error at main/CMakeLists.txt:1 (add_executable):
+  No SOURCES given to target: program
+
+
 CMake Generate step failed.  Build files cannot be regenerated correctly.

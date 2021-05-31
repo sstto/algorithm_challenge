@@ -5,6 +5,7 @@
 
 #include <dag.h>
 #include "backtrack.h"
+#include <limits.h>
 
 Backtrack::Backtrack() {
 }
@@ -20,12 +21,49 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
   Dag dag(query, cs);
   std::vector<size_t> visited;
   visited.resize(query.GetNumVertices(),-1);
-  //
+  //visited: embedding
+  //ec : embedding candidate : we have to check whether it is embedding or not. True -> check candidate size
+  std::set<Vertex> ec;
+
   Vertex root_vertex = dag.GetRootVertex();
+
+
+
+
   for(size_t i = 0; i < cs.GetCandidateSize(root_vertex); i++) {
       size_t c = cs.GetCandidate(root_vertex, i);
       visited[root_vertex] = c;
-      backtracking(root_vertex, c, data, query, cs, dag, visited);
+      //backtracking(root_vertex, c, data, query, cs, dag, visited);
+      for(size_t j = 0; j<dag.GetDirectedNeighborSize(root_vertex); j++){
+          ec.insert(dag.GetDirectedNeighbor(root_vertex)[j]);
+      }
+
+      while(!ec.empty()){
+          Vertex next_vertex;size_t cs_size = ULONG_MAX;
+          for(auto it = ec.begin();it != ec.end();it++){
+              auto parents = dag.GetInvDirectedNeighbor(*it);
+              bool isValid = true;
+              for(auto it_p = parents.begin(); it_p != parents.end(); it_p++){
+                  if(visited[*it_p] == -1){
+                      isValid = false;
+                      break;
+                  }
+              }
+              if(isValid){
+                  if(cs_size > cs.GetCandidateSize(*it)){
+                      next_vertex = *it;
+                      cs_size = cs.GetCandidateSize(*it);
+                  }
+              }
+          }
+
+          ec.erase(next_vertex);
+
+
+
+      }
+
+
   }
 }
 
