@@ -8,6 +8,7 @@
 #include <algorithm>
 
 Backtrack::Backtrack() {
+    count = 0;
 }
 Backtrack::~Backtrack() {}
 
@@ -102,13 +103,19 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
                 }
             }
         }else if(isEnd){
+            std::cout << count <<std::endl;
             std::cout << "a ";
             for(auto it = embedding.begin(); it != embedding.end();it++){
                 std::cout << *it << " ";
             }
             std::cout << std::endl;
             //check(data, query, embedding);
-            std::cout << "isReal : " << check(data, query, embedding) << std::endl;
+//            std::cout << "isReal : " << check(data, query, embedding) << std::endl;
+            count +=1;
+            if(count == 100000){
+                std::cout << "count = 100000" << std::endl;
+                exit(0);
+            }
             return;
         }
 
