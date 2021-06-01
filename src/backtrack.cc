@@ -107,7 +107,7 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
                 std::cout << *it << " ";
             }
             std::cout << std::endl;
-            check(data, query, embedding);
+            //check(data, query, embedding);
             return;
         }
 
