@@ -89,18 +89,31 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
         }
 
         //std::cout<<"back"<<std::endl;
-        if(isEnd){
+
+        auto it_v = std::find(embedding.begin(),embedding.end(), ULONG_MAX);
+        if(isEnd && (it_v != embedding.end())){
+            size_t factor = ULONG_MAX;
+            for (size_t i = 0; i < query.GetNumVertices(); ++i) {
+                if(embedding[i] == ULONG_MAX) {
+                    if (factor > cs.GetCandidateSize(i) / query.GetDegree(i)) {
+                        factor = cs.GetCandidateSize(i) / query.GetDegree(i);
+                        next_vertex = i;
+                    }
+                }
+            }
+        }else if(isEnd){
             std::cout << "a ";
             for(auto it = embedding.begin(); it != embedding.end();it++){
                 std::cout << *it << " ";
             }
             std::cout << std::endl;
+            check(data, query, embedding);
             return;
         }
+
         backtracking(data, query, cs, next_vertex, embedding);
 
     }
-
     embedding[u] = ULONG_MAX;
 }
 //void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
