@@ -17,8 +17,8 @@ class Backtrack {
 
   void PrintAllMatches(const Graph &data, const Graph &query,
                        const CandidateSet &cs);
-  void backtracking(const Vertex &v, const size_t &c, const Graph &data, const Graph &query,
-                    const CandidateSet &cs, const Dag &dag, std::vector<size_t> visited);
+  void backtracking(const Graph &data, const Graph &query,
+                    const CandidateSet &cs, Vertex u, std::vector<size_t> embedding);
 };
 
 #endif  // BACKTRACK_H_

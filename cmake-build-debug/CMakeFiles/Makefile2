@@ -141,12 +141,12 @@ CMakeFiles/CMakeLists.dir/clean:
 main/CMakeFiles/program.dir/all:
 	$(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/depend
 	$(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6,7 "Built target program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5 "Built target program"
 .PHONY : main/CMakeFiles/program.dir/all
 
 # Build rule for subdir invocation for target.
 main/CMakeFiles/program.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles" 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main/CMakeFiles/program.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles" 0
 .PHONY : main/CMakeFiles/program.dir/rule

@@ -10,5 +10,3 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 file(GLOB SOURCES src/*)
 
 add_subdirectory(main)
-
-add_executable(CMakeLists main/CMakeLists.txt include/candidate_space.h)

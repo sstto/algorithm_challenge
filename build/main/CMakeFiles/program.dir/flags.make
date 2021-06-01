@@ -4,7 +4,7 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/include"
+CXX_INCLUDES = -I"/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/include"
 
 CXX_FLAGS =  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -O3 -Wall -std=c++11
 

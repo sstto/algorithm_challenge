@@ -199,60 +199,6 @@ __/src/candidate_set.cc.s:
 	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/candidate_set.cc.s
 .PHONY : __/src/candidate_set.cc.s
 
-__/src/candidate_space.o: __/src/candidate_space.cpp.o
-
-.PHONY : __/src/candidate_space.o
-
-# target to build an object file
-__/src/candidate_space.cpp.o:
-	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/candidate_space.cpp.o
-.PHONY : __/src/candidate_space.cpp.o
-
-__/src/candidate_space.i: __/src/candidate_space.cpp.i
-
-.PHONY : __/src/candidate_space.i
-
-# target to preprocess a source file
-__/src/candidate_space.cpp.i:
-	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/candidate_space.cpp.i
-.PHONY : __/src/candidate_space.cpp.i
-
-__/src/candidate_space.s: __/src/candidate_space.cpp.s
-
-.PHONY : __/src/candidate_space.s
-
-# target to generate assembly for a file
-__/src/candidate_space.cpp.s:
-	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/candidate_space.cpp.s
-.PHONY : __/src/candidate_space.cpp.s
-
-__/src/dag.o: __/src/dag.cc.o
-
-.PHONY : __/src/dag.o
-
-# target to build an object file
-__/src/dag.cc.o:
-	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/dag.cc.o
-.PHONY : __/src/dag.cc.o
-
-__/src/dag.i: __/src/dag.cc.i
-
-.PHONY : __/src/dag.i
-
-# target to preprocess a source file
-__/src/dag.cc.i:
-	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/dag.cc.i
-.PHONY : __/src/dag.cc.i
-
-__/src/dag.s: __/src/dag.cc.s
-
-.PHONY : __/src/dag.s
-
-# target to generate assembly for a file
-__/src/dag.cc.s:
-	cd "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f main/CMakeFiles/program.dir/build.make main/CMakeFiles/program.dir/__/src/dag.cc.s
-.PHONY : __/src/dag.cc.s
-
 __/src/graph.o: __/src/graph.cc.o
 
 .PHONY : __/src/graph.o
@@ -322,12 +268,6 @@ help:
 	@echo "... __/src/candidate_set.o"
 	@echo "... __/src/candidate_set.i"
 	@echo "... __/src/candidate_set.s"
-	@echo "... __/src/candidate_space.o"
-	@echo "... __/src/candidate_space.i"
-	@echo "... __/src/candidate_space.s"
-	@echo "... __/src/dag.o"
-	@echo "... __/src/dag.i"
-	@echo "... __/src/dag.s"
 	@echo "... __/src/graph.o"
 	@echo "... __/src/graph.i"
 	@echo "... __/src/graph.s"

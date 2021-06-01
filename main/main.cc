@@ -3,7 +3,6 @@
  *
  */
 
-#include <dag.h>
 #include "backtrack.h"
 #include "candidate_set.h"
 #include "common.h"
