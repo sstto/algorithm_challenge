@@ -108,6 +108,7 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
             }
             std::cout << std::endl;
             //check(data, query, embedding);
+            std::cout << "isReal : " << check(data, query, embedding) << std::endl;
             return;
         }
 
@@ -115,6 +116,23 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
 
     }
     embedding[u] = ULONG_MAX;
+}
+
+bool Backtrack::check(const Graph &data, const Graph &query, const std::vector<size_t> embedding)
+{
+    bool isValid = true;
+    for(size_t i = 0; i<query.GetNumVertices(); i++)
+    {
+        size_t startOffset = query.GetNeighborStartOffset(i);
+        size_t endOffset = query.GetNeighborEndOffset(i);
+
+        for(size_t j = startOffset; j <endOffset; j++) {
+            Vertex uNeighbor = query.GetNeighbor(j);
+            if(!data.IsNeighbor(embedding[i],embedding[uNeighbor]))
+                isValid = false;
+        }
+    }
+    return isValid;
 }
 //void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 //                                const CandidateSet &cs) {
