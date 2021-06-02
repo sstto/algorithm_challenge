@@ -963,8 +963,11 @@ main/CMakeFiles/program.dir/main.cc.o: ../main/main.cc \
   /Library/Developer/CommandLineTools/usr/include/c++/v1/__node_handle \
   /Library/Developer/CommandLineTools/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/usr/include/c++/v1/vector \
-  ../include/graph.h
+  ../include/graph.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/sstream
 
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/sstream:
 
 ../src/graph.cc:
 

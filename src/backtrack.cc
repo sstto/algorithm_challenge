@@ -42,6 +42,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 
 void Backtrack::backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
                              Vertex u, std::vector<size_t> embedding) {
+//    std::cout << "vertex 탐방 : " << u <<std::endl;
     std::vector<Vertex> visited;
     size_t startOffset = query.GetNeighborStartOffset(u);
     size_t endOffset = query.GetNeighborEndOffset(u);
@@ -82,6 +83,13 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
 
         // injective
         size_t candidate = cs.GetCandidate(u, j);
+//        if(candidate == 937){
+//            std::cout << "real ";
+//            for(auto it = embedding.begin(); it != embedding.end();it++){
+//                std::cout << *it << " ";
+//            }
+//            std::cout << std::endl;
+//        }
         //std::cout << "vertex : " << u << " ,candidate v id : " << candidate << std::endl;
         auto it = std::find(embedding.begin(),embedding.end(), candidate);
         if(!(it == embedding.end())) continue;
@@ -118,11 +126,12 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
                 std::cout << "count = 100000" << std::endl;
                 exit(0);
             }
-            return;
+            if(j == cs.GetCandidateSize(u)-1){
+                return;
+            }
+        }else{
+            backtracking(data, query, cs, next_vertex, embedding);
         }
-
-        backtracking(data, query, cs, next_vertex, embedding);
-
     }
     embedding[u] = ULONG_MAX;
 }
