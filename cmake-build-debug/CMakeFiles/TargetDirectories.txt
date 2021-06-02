@@ -1,6 +1,5 @@
 /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles/CMakeLists.dir
 /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/CMakeFiles/rebuild_cache.dir
 /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/CMakeFiles/edit_cache.dir
 /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/CMakeFiles/program.dir

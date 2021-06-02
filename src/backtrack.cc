@@ -61,7 +61,20 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
             }
         }
     }
-    //=========================print ===============================
+    embedding[u] = ULONG_MAX-1;
+    auto it_v = std::find(embedding.begin(),embedding.end(), ULONG_MAX);
+    if(isEnd && (it_v != embedding.end())){
+        size_t factor = ULONG_MAX;
+        for (size_t i = 0; i < query.GetNumVertices(); ++i) {
+            if(embedding[i] == ULONG_MAX) {
+                if (factor > cs.GetCandidateSize(i) / query.GetDegree(i)) {
+                    factor = cs.GetCandidateSize(i) / query.GetDegree(i);
+                    next_vertex = i;
+                }
+            }
+        }
+    }
+        //=========================print ===============================
     //std::cout << "next vertex of "<< u << " : "<< next_vertex << std::endl;
 
     for(size_t j = 0 ; j<cs.GetCandidateSize(u); j++){
@@ -91,18 +104,7 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
 
         //std::cout<<"back"<<std::endl;
 
-        auto it_v = std::find(embedding.begin(),embedding.end(), ULONG_MAX);
-        if(isEnd && (it_v != embedding.end())){
-            size_t factor = ULONG_MAX;
-            for (size_t i = 0; i < query.GetNumVertices(); ++i) {
-                if(embedding[i] == ULONG_MAX) {
-                    if (factor > cs.GetCandidateSize(i) / query.GetDegree(i)) {
-                        factor = cs.GetCandidateSize(i) / query.GetDegree(i);
-                        next_vertex = i;
-                    }
-                }
-            }
-        }else if(isEnd){
+        if(isEnd && (it_v == embedding.end())){
             std::cout << count <<std::endl;
             std::cout << "a ";
             for(auto it = embedding.begin(); it != embedding.end();it++){

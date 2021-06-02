@@ -73,7 +73,6 @@ CMAKE_BINARY_DIR = "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/CMakeLists.dir/all
 all: main/all
 
 .PHONY : all
@@ -84,7 +83,6 @@ preinstall: main/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/CMakeLists.dir/clean
 clean: main/clean
 
 .PHONY : clean
@@ -106,33 +104,6 @@ main/preinstall:
 main/clean: main/CMakeFiles/program.dir/clean
 
 .PHONY : main/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/CMakeLists.dir
-
-# All Build rule for target.
-CMakeFiles/CMakeLists.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CMakeLists.dir/build.make CMakeFiles/CMakeLists.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CMakeLists.dir/build.make CMakeFiles/CMakeLists.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles" --progress-num= "Built target CMakeLists"
-.PHONY : CMakeFiles/CMakeLists.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/CMakeLists.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles" 0
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CMakeLists.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/CMakeFiles" 0
-.PHONY : CMakeFiles/CMakeLists.dir/rule
-
-# Convenience name for target.
-CMakeLists: CMakeFiles/CMakeLists.dir/rule
-
-.PHONY : CMakeLists
-
-# clean rule for target.
-CMakeFiles/CMakeLists.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CMakeLists.dir/build.make CMakeFiles/CMakeLists.dir/clean
-.PHONY : CMakeFiles/CMakeLists.dir/clean
 
 #=============================================================================
 # Target rules for target main/CMakeFiles/program.dir
