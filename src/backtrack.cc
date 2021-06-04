@@ -17,7 +17,7 @@ Backtrack::~Backtrack() {}
 
 void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
                                 const CandidateSet &cs) {
-//    std::cout << "t " << query.GetNumVertices() << "\n";
+    std::cout << "t " << query.GetNumVertices() << "\n";
 
     // find a root_vertex
     size_t root_vertex = 0;
@@ -40,8 +40,8 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 void Backtrack::backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
                              Vertex u, std::vector<size_t> embedding) {
     //=========================print ===============================
-    std::cout << "vertex 탐방 : " << u <<std::endl;
-    int c = 0;
+//    std::cout << "vertex 탐방 : " << u <<std::endl;
+//    int c = 0;
 //    for(auto it = embedding.begin(); it != embedding.end();it++){
 //        if(*it != ULONG_MAX){
 ////            std::cout << *it << ", ";
@@ -51,9 +51,9 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
 //            }
 //        }
 //    }
-    if(u == 150){
-        std::cout << embedding[149] <<std::endl;
-    }
+//    if(u == 150){
+//        std::cout << embedding[149] <<std::endl;
+//    }
 //    std::cout << c << std::endl;
     std::vector<Vertex> visited;
     size_t startOffset = query.GetNeighborStartOffset(u);
@@ -62,38 +62,48 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
     size_t factor = ULONG_MAX;
     for(size_t i = startOffset; i <endOffset; i++){
         Vertex uNeighbor = query.GetNeighbor(i);
-        if(embedding[uNeighbor] != ULONG_MAX){
+        if(embedding[uNeighbor] != ULONG_MAX) {
             visited.push_back(uNeighbor);
-        }else{
-            //visited neigbor X
-            size_t argmin = ArgMin(cs.GetCandidateSize(uNeighbor),query.GetDegree(uNeighbor));
-            if(factor > argmin){
-                next_vertex = uNeighbor;
+        }
+//        }else{
+//            //visited neigbor X
+//            size_t argmin = ArgMin(cs.GetCandidateSize(uNeighbor),query.GetDegree(uNeighbor));
+//            if(factor > argmin){
+//                next_vertex = uNeighbor;
+//                factor = argmin;
+//                isEnd = false;
+//            }
+//        }
+    }
+    for(size_t i = 0; i< query.GetNumVertices(); i++) {
+        //            //visited neigbor X
+        if(embedding[i] != ULONG_MAX) {
+            size_t argmin = ArgMin(cs.GetCandidateSize(i), query.GetDegree(i));
+            if (factor > argmin) {
+                next_vertex = i;
                 factor = argmin;
-                isEnd = false;
             }
         }
     }
-
 
     embedding[u] = ULONG_MAX-1;
     auto it_v = std::find(embedding.begin(),embedding.end(), ULONG_MAX);
-    if(isEnd && (it_v != embedding.end())){
-        size_t factor = ULONG_MAX;
-        for (size_t i = 0; i < query.GetNumVertices(); ++i) {
-            if(embedding[i] == ULONG_MAX) {
-                if (factor > ArgMin(cs.GetCandidateSize(i),query.GetDegree(i))) {
-                    factor = ArgMin(cs.GetCandidateSize(i),query.GetDegree(i));
-                    next_vertex = i;
-                }
-            }
-        }
+//    if(isEnd && (it_v != embedding.end())){
+//        size_t factor = ULONG_MAX;
+//        for (size_t i = 0; i < query.GetNumVertices(); ++i) {
+//            if(embedding[i] == ULONG_MAX) {
+//                if (factor > ArgMin(cs.GetCandidateSize(i),query.GetDegree(i))) {
+//                    factor = ArgMin(cs.GetCandidateSize(i),query.GetDegree(i));
+//                    next_vertex = i;
+//                }
+//            }
+//        }
         //=========================print ===============================
 //        std::cout<< "next vertexs with random : " << next_vertex << std::endl;
-    }else{
-        //=========================print ===============================
-//        std::cout << "next vertex : " << next_vertex <<std::endl;
-    }
+//    }else{
+//        //=========================print ===============================
+////        std::cout << "next vertex : " << next_vertex <<std::endl;
+//    }
 //    if(next_vertex == 24){
 //        std::cout << "24 <-" << u<<std::endl;
 //    }
@@ -136,7 +146,8 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
 
         //std::cout<<"back"<<std::endl;
 
-        if(isEnd && (it_v == embedding.end())){
+//        if(isEnd && (it_v == embedding.end())){
+        if((it_v == embedding.end())){
             std::cout << count <<std::endl;
             std::cout << "a ";
             for(auto it = embedding.begin(); it != embedding.end();it++){
