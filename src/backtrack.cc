@@ -42,7 +42,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 
 void Backtrack::backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
                              Vertex u, std::vector<size_t> embedding) {
-//    std::cout << "vertex 탐방 : " << u <<std::endl;
+    std::cout << "vertex 탐방 : " << u <<std::endl;
     std::vector<Vertex> visited;
     size_t startOffset = query.GetNeighborStartOffset(u);
     size_t endOffset = query.GetNeighborEndOffset(u);
@@ -62,6 +62,8 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
             }
         }
     }
+
+
     embedding[u] = ULONG_MAX-1;
     auto it_v = std::find(embedding.begin(),embedding.end(), ULONG_MAX);
     if(isEnd && (it_v != embedding.end())){
@@ -74,15 +76,24 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
                 }
             }
         }
+        std::cout<< "next vertexs with random : " << next_vertex << std::endl;
+    }else{
+        std::cout << "next vertex : " << next_vertex <<std::endl;
     }
+    if(next_vertex == 24){
+        std::cout << "24 <-" << u<<std::endl;
+    }
+
         //=========================print ===============================
     //std::cout << "next vertex of "<< u << " : "<< next_vertex << std::endl;
-
-    for(size_t j = 0 ; j<cs.GetCandidateSize(u); j++){
+    size_t csSize = cs.GetCandidateSize(u);
+    for(size_t j = 0 ; j<csSize; j++){
         bool isValid = true;
+       // std::cout << "loop :"<< j << std::endl;
 
         // injective
         size_t candidate = cs.GetCandidate(u, j);
+        //std::cout << "candidate size :"<< csSize<< " ,candidate :" << candidate <<std::endl;
 //        if(candidate == 937){
 //            std::cout << "real ";
 //            for(auto it = embedding.begin(); it != embedding.end();it++){
@@ -90,7 +101,7 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
 //            }
 //            std::cout << std::endl;
 //        }
-        //std::cout << "vertex : " << u << " ,candidate v id : " << candidate << std::endl;
+//        std::cout << "vertex : " << u << " ,candidate v id : " << candidate;
         auto it = std::find(embedding.begin(),embedding.end(), candidate);
         if(!(it == embedding.end())) continue;
 
@@ -99,12 +110,14 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
             for(auto it_visited = visited.begin(); it_visited != visited.end();it_visited++) {
                 if (!data.IsNeighbor(embedding[*it_visited], candidate)) {
                     isValid = false;
-                    break;
                 }
             }
         }
 
         if(!isValid){
+//            if(!visited.empty() && j == cs.GetCandidateSize(u)-1 && isConnected == false){
+//                return;
+//            }
             continue;
         }else{
             embedding[u] = candidate;
@@ -130,10 +143,12 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
                 return;
             }
         }else{
+            std::cout << "back" << std::endl;
             backtracking(data, query, cs, next_vertex, embedding);
         }
     }
     embedding[u] = ULONG_MAX;
+    return;
 }
 
 bool Backtrack::check(const Graph &data, const Graph &query, const std::vector<size_t> embedding)
