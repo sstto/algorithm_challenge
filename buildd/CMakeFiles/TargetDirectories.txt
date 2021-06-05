@@ -1,0 +1,3 @@
+C:/Users/kyi88/git/algo_hw2/buildd/CMakeFiles/ALL_BUILD.dir
+C:/Users/kyi88/git/algo_hw2/buildd/CMakeFiles/ZERO_CHECK.dir
+C:/Users/kyi88/git/algo_hw2/buildd/main/CMakeFiles/program.dir

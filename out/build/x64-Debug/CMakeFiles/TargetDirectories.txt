@@ -1,0 +1,5 @@
+C:/Users/kyi88/git/algo_hw2/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/kyi88/git/algo_hw2/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/kyi88/git/algo_hw2/out/build/x64-Debug/main/CMakeFiles/program.dir
+C:/Users/kyi88/git/algo_hw2/out/build/x64-Debug/main/CMakeFiles/edit_cache.dir
+C:/Users/kyi88/git/algo_hw2/out/build/x64-Debug/main/CMakeFiles/rebuild_cache.dir
