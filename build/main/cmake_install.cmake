@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/Users/kyi88/git/algo_hw2/main
+=======
+# Install script for directory: /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main
+>>>>>>> 7bf45b749dc989912942e89677dc52d472b77cbe
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

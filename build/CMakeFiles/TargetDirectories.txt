@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 C:/Users/kyi88/git/algo_hw2/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/kyi88/git/algo_hw2/build/CMakeFiles/ZERO_CHECK.dir
 C:/Users/kyi88/git/algo_hw2/build/main/CMakeFiles/program.dir
+=======
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/build/CMakeFiles/rebuild_cache.dir
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/build/CMakeFiles/edit_cache.dir
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/build/main/CMakeFiles/rebuild_cache.dir
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/build/main/CMakeFiles/edit_cache.dir
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/build/main/CMakeFiles/program.dir
+>>>>>>> 7bf45b749dc989912942e89677dc52d472b77cbe

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/Users/kyi88/git/algo_hw2
+=======
+# Install script for directory: /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2
+>>>>>>> 7bf45b749dc989912942e89677dc52d472b77cbe
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +38,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+<<<<<<< HEAD
   include("C:/Users/kyi88/git/algo_hw2/build/main/cmake_install.cmake")
+=======
+  include("/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/build/main/cmake_install.cmake")
+>>>>>>> 7bf45b749dc989912942e89677dc52d472b77cbe
 
 endif()
 
@@ -46,5 +54,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "C:/Users/kyi88/git/algo_hw2/build/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/build/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> 7bf45b749dc989912942e89677dc52d472b77cbe
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
