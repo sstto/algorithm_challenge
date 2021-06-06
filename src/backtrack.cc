@@ -28,7 +28,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     std::vector<std::vector<Vertex>> nextVisited;
     std::vector<std::vector<Vertex>> seqVisited;
 
-    nextVertex.resize(query.GetNumVertices(), -1);
+    nextVertex.resize(query.GetNumVertices(), INT32_MAX);
     nextVisited.resize(query.GetNumVertices());
 
     // find a root_vertex
@@ -113,13 +113,13 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     //std::cout << std::endl;
     //=========================print ===============================
     //std::cout << "back tracking start" << std::endl;
-    backtracking(data, query, cs, root_vertex, embedding, nextVertex, nextVisited);
+    backtracking(data, query, cs, root_vertex, embedding, nextVertex, nextVisited, INT32_MAX);
     //=========================print ===============================
 //    std::cout << "back tracking end" << std::endl;
 }
 
 void Backtrack::backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
-                             Vertex u, std::vector<size_t> embedding, std::vector<Vertex>& nV, std::vector<std::vector<Vertex>>& nVisit) {
+                             Vertex u, std::vector<size_t> embedding, std::vector<Vertex>& nV, std::vector<std::vector<Vertex>>& nVisit, Vertex prev) {
     Vertex nextVertex = nV[u];
     std::vector<Vertex> visited = nVisit[u];
     //=========================print ===============================
@@ -132,6 +132,10 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
         // injective
         size_t candidate = cs.GetCandidate(u, j);
 
+        if(prev != INT32_MAX && query.IsNeighbor(prev, u) && !data.IsNeighbor(embedding[prev],candidate)){
+            continue;
+        }
+
         auto it = std::find(embedding.begin(),embedding.end(), candidate);
         if(!(it == embedding.end())) continue;
 
@@ -140,14 +144,12 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
             for(auto it_visited = visited.begin(); it_visited != visited.end();it_visited++) {
                 if (!data.IsNeighbor(embedding[*it_visited], candidate)) {
                     isValid = false;
+                    break;
                 }
             }
         }
 
         if(!isValid){
-//            if(!visited.empty() && j == cs.GetCandidateSize(u)-1 && isConnected == false){
-//                return;
-//            }
             continue;
         }else{
             embedding[u] = candidate;
@@ -155,7 +157,7 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
 
         //std::cout<<"back"<<std::endl;
 
-        if((nextVertex == -1)&& embedding[u] != ULONG_MAX){
+        if((nextVertex == INT32_MAX)&& embedding[u] != ULONG_MAX){
             std::cout << count <<std::endl;
             std::cout << "a ";
             for(auto it = embedding.begin(); it != embedding.end();it++){
@@ -174,11 +176,11 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
             }
         }else{
 //            std::cout << "back" << std::endl;
-            backtracking(data, query, cs, nextVertex, embedding,nV, nVisit);
+            backtracking(data, query, cs, nextVertex, embedding,nV, nVisit, u);
         }
     }
     embedding[u] = ULONG_MAX;
-    return;
+
 }
 
 bool Backtrack::check(const Graph &data, const Graph &query, const std::vector<size_t> embedding)
