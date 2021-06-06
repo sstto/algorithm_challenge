@@ -20,6 +20,9 @@ class Backtrack {
   void backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
                     Vertex u, std::vector<size_t> embedding, std::vector<Vertex> &nV, std::vector<std::vector<Vertex>> &nVisit);
   bool check(const Graph &data, const Graph &query, const std::vector<size_t> embedding);
+
+//  bool compare(const std::pair<Vertex,size_t> &a, const std::pair<Vertex,size_t> &b);
+
 //  bool compare(Vertex& u, Vertex& v);
 
 //  std::vector<size_t> ordering(const Graph &data, const Graph &query, const CandidateSet &cs);

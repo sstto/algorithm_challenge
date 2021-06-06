@@ -7,9 +7,12 @@
 #include <limits.h>
 #include <algorithm>
 
-bool compare(Vertex& u, Vertex& v, CandidateSet& cs, Graph& query){
-    return cs.GetCandidateSize(u)/query.GetDegree(u) > cs.GetCandidateSize(v)/query.GetDegree(v);
+
+bool compare(const std::pair<Vertex,size_t> &a, const std::pair<Vertex,size_t> &b)
+{
+    return a.second < b.second;
 }
+
 
 Backtrack::Backtrack(){
     count = 0;
@@ -25,7 +28,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     std::vector<std::vector<Vertex>> nextVisited;
     std::vector<std::vector<Vertex>> seqVisited;
 
-    nextVertex.resize(query.GetNumVertices(), ULONG_MAX);
+    nextVertex.resize(query.GetNumVertices(), -1);
     nextVisited.resize(query.GetNumVertices());
 
     // find a root_vertex
@@ -40,7 +43,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 //    std::cout << root_vertex <<std::endl;
     std::vector<Vertex> toVisit;
     std::vector<Vertex> visited;
-
+    std::cout << "start" <<std::endl;
     toVisit.push_back(root_vertex);
     while(!toVisit.empty()){
         Vertex u = toVisit.back();
@@ -51,15 +54,23 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
         visited.push_back(u);
 
         std::vector<Vertex> neighbor;
+        std::vector<std::pair<Vertex,size_t>> v;
         size_t startOffset = query.GetNeighborStartOffset(u);
         size_t endOffset = query.GetNeighborEndOffset(u);
         for(size_t i = startOffset; i <endOffset; i++) {
             Vertex uNeighbor = query.GetNeighbor(i);
-            neighbor.push_back(uNeighbor);
+            v.push_back(std::pair<Vertex, size_t>(uNeighbor,cs.GetCandidateSize(uNeighbor)/query.GetDegree(uNeighbor)));
+
         }
 
 //        sort(neighbor.begin(), neighbor.end(), compare);
 
+
+        sort(v.begin(),v.end(),compare);
+
+        for(auto it = v.begin(); it < v.end();it++) {
+            neighbor.push_back((*it).first);
+        }
         for(auto it = neighbor.begin(); it < neighbor.end(); it++){
             if(std::find(visited.begin(), visited.end(),*it) == visited.end()){
 //                visited.push_back(*it);
@@ -68,7 +79,6 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
                 }
             }
         }
-
     }
     Vertex j = 0;
     for(auto it = seqVertex.begin(); it < seqVertex.end(); it++){
@@ -82,7 +92,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
         nextVisited[*it] = a;
         j++;
     }
-
+    std::cout << "start" <<std::endl;
 //    for(auto it = nextVertex.begin(); it < nextVertex.end(); it++){
 //        std::cout << *it << std::endl;
 //    }
@@ -110,48 +120,6 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 
 void Backtrack::backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
                              Vertex u, std::vector<size_t> embedding, std::vector<Vertex>& nV, std::vector<std::vector<Vertex>>& nVisit) {
-//    std::cout << "vertex 탐방 : " << u <<std::endl;
-//    std::vector<Vertex> visited;
-//    size_t startOffset = query.GetNeighborStartOffset(u);
-//    size_t endOffset = query.GetNeighborEndOffset(u);
-//    Vertex next_vertex; bool isEnd = true;
-//    size_t factor = ULONG_MAX;
-//    for(size_t i = startOffset; i <endOffset; i++){
-//        Vertex uNeighbor = query.GetNeighbor(i);
-//        if(embedding[uNeighbor] != ULONG_MAX){
-//            visited.push_back(uNeighbor);
-//        }else{
-//            //visited neigbor X
-//            size_t argmin = cs.GetCandidateSize(uNeighbor)/query.GetDegree(uNeighbor);
-//            if(factor > argmin){
-//                next_vertex = uNeighbor;
-//                factor = argmin;
-//                isEnd = false;
-//            }
-//        }
-//    }
-//
-//
-//    embedding[u] = ULONG_MAX-1;
-//    auto it_v = std::find(embedding.begin(),embedding.end(), ULONG_MAX);
-//    if(isEnd && (it_v != embedding.end())) {
-//        size_t factor = ULONG_MAX;
-//        for (size_t i = 0; i < query.GetNumVertices(); ++i) {
-//            if (embedding[i] == ULONG_MAX) {
-//                if (factor > cs.GetCandidateSize(i) / query.GetDegree(i)) {
-//                    factor = cs.GetCandidateSize(i) / query.GetDegree(i);
-//                    next_vertex = i;
-//                }
-//            }
-//        }
-////        std::cout<< "next vertexs with random : " << next_vertex << std::endl;
-//    }
-//    }else{
-//        std::cout << "next vertex : " << next_vertex <<std::endl;
-//    }
-//    if(next_vertex == 24){
-//        std::cout << "24 <-" << u<<std::endl;
-//    }
     Vertex nextVertex = nV[u];
     std::vector<Vertex> visited = nVisit[u];
     //=========================print ===============================
