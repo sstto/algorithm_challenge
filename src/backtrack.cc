@@ -32,7 +32,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     nextVisited.resize(query.GetNumVertices());
 
     // find a root_vertex
-    size_t root_vertex = 0;
+    Vertex root_vertex = 0;
     size_t factor = cs.GetCandidateSize(0)/query.GetDegree(0);
     for (size_t i = 0; i < query.GetNumVertices(); ++i) {
         if (factor > cs.GetCandidateSize(i)/query.GetDegree(i)){
