@@ -32,54 +32,69 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     nextVisited.resize(query.GetNumVertices());
 
     // find a root_vertex
-    Vertex root_vertex = 0;
-    size_t factor = cs.GetCandidateSize(0)/query.GetDegree(0);
-    for (size_t i = 0; i < query.GetNumVertices(); ++i) {
-        if (factor > cs.GetCandidateSize(i)/query.GetDegree(i)){
-            factor = cs.GetCandidateSize(i)/query.GetDegree(i);
-            root_vertex = i;
-        }
-    }
+
+//    size_t factor = cs.GetCandidateSize(0)/query.GetDegree(0);
+//    for (size_t i = 0; i < query.GetNumVertices(); ++i) {
+//        if (factor > cs.GetCandidateSize(i)/query.GetDegree(i)){
+//            factor = cs.GetCandidateSize(i)/query.GetDegree(i);
+//            root_vertex = i;
+//        }
+//    }
 //    std::cout << root_vertex <<std::endl;
-    std::vector<Vertex> toVisit;
-    std::vector<Vertex> visited;
-    std::cout << "start" <<std::endl;
-    toVisit.push_back(root_vertex);
-    while(!toVisit.empty()){
-        Vertex u = toVisit.back();
-        seqVertex.push_back(u);
-        seqVisited.push_back(visited);
-        toVisit.pop_back();
-
-        visited.push_back(u);
-
-        std::vector<Vertex> neighbor;
-        std::vector<std::pair<Vertex,size_t>> v;
-        size_t startOffset = query.GetNeighborStartOffset(u);
-        size_t endOffset = query.GetNeighborEndOffset(u);
-        for(size_t i = startOffset; i <endOffset; i++) {
-            Vertex uNeighbor = query.GetNeighbor(i);
-            v.push_back(std::pair<Vertex, size_t>(uNeighbor,cs.GetCandidateSize(uNeighbor)/query.GetDegree(uNeighbor)));
-
-        }
-
-//        sort(neighbor.begin(), neighbor.end(), compare);
-
-
-        sort(v.begin(),v.end(),compare);
-
-        for(auto it = v.begin(); it < v.end();it++) {
-            neighbor.push_back((*it).first);
-        }
-        for(auto it = neighbor.begin(); it < neighbor.end(); it++){
-            if(std::find(visited.begin(), visited.end(),*it) == visited.end()){
-//                visited.push_back(*it);
-                if(std::find(toVisit.begin(), toVisit.end(),*it) == toVisit.end()){
-                    toVisit.push_back(*it);
-                }
-            }
-        }
+//    std::vector<Vertex> toVisit;
+//    std::vector<Vertex> visited;
+//    std::cout << "start" <<std::endl;
+//    toVisit.push_back(root_vertex);
+//    while(!toVisit.empty()){
+//        Vertex u = toVisit.back();
+//        seqVertex.push_back(u);
+//        seqVisited.push_back(visited);
+//        toVisit.pop_back();
+//
+//        visited.push_back(u);
+//
+//        std::vector<Vertex> neighbor;
+//        std::vector<std::pair<Vertex,size_t>> v;
+//        size_t startOffset = query.GetNeighborStartOffset(u);
+//        size_t endOffset = query.GetNeighborEndOffset(u);
+//        for(size_t i = startOffset; i <endOffset; i++) {
+//            Vertex uNeighbor = query.GetNeighbor(i);
+//            v.push_back(std::pair<Vertex, size_t>(uNeighbor,cs.GetCandidateSize(uNeighbor)/query.GetDegree(uNeighbor)));
+//
+//        }
+//
+////        sort(neighbor.begin(), neighbor.end(), compare);
+//
+//
+//        sort(v.begin(),v.end(),compare);
+//
+//        for(auto it = v.begin(); it < v.end();it++) {
+//            neighbor.push_back((*it).first);
+//        }
+//        for(auto it = neighbor.begin(); it < neighbor.end(); it++){
+//            if(std::find(visited.begin(), visited.end(),*it) == visited.end()){
+////                visited.push_back(*it);
+//                if(std::find(toVisit.begin(), toVisit.end(),*it) == toVisit.end()){
+//                    toVisit.push_back(*it);
+//                }
+//            }
+//        }
+//    }
+    std::vector<std::pair<Vertex,size_t>> v;
+    for(Vertex i = 0; i <query.GetNumVertices(); i++) {
+            v.push_back(std::pair<Vertex, size_t>(i,cs.GetCandidateSize(i)/query.GetDegree(i)));
     }
+    sort(v.begin(), v.end(), compare);
+    for(auto it = v.begin(); it < v.end();it++) {
+            seqVertex.push_back((*it).first);
+    }
+
+    std::vector<Vertex> visit;
+    for(auto it = seqVertex.begin(); it < seqVertex.end();it++){
+        seqVisited.push_back(visit);
+        visit.push_back(*it);
+    }
+
     Vertex j = 0;
     for(auto it = seqVertex.begin(); it < seqVertex.end(); it++){
         if(it != seqVertex.end()-1){nextVertex[*it] = *(it+1);}
@@ -92,8 +107,8 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
         nextVisited[*it] = a;
         j++;
     }
-    std::cout << "start" <<std::endl;
-//    for(auto it = nextVertex.begin(); it < nextVertex.end(); it++){
+//    std::cout << "start" <<std::endl;
+//    for(auto it = seqVertex.begin(); it < seqVertex.end(); it++){
 //        std::cout << *it << std::endl;
 //    }
 //    for(auto it = nextVisited.begin(); it <nextVisited.end(); it++){
@@ -113,6 +128,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     //std::cout << std::endl;
     //=========================print ===============================
     //std::cout << "back tracking start" << std::endl;
+    Vertex root_vertex = seqVertex[0];
     backtracking(data, query, cs, root_vertex, embedding, nextVertex, nextVisited, INT32_MAX);
     //=========================print ===============================
 //    std::cout << "back tracking end" << std::endl;
@@ -132,9 +148,9 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
         // injective
         size_t candidate = cs.GetCandidate(u, j);
 
-        if(prev != INT32_MAX && query.IsNeighbor(prev, u) && !data.IsNeighbor(embedding[prev],candidate)){
-            continue;
-        }
+//        if(prev != INT32_MAX && query.IsNeighbor(prev, u) && !data.IsNeighbor(embedding[prev],candidate)){
+//            continue;
+//        }
 
         auto it = std::find(embedding.begin(),embedding.end(), candidate);
         if(!(it == embedding.end())) continue;
