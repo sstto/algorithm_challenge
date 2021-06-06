@@ -14,10 +14,17 @@ Backtrack::~Backtrack() {}
 
 void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
                                 const CandidateSet &cs) {
-    std::cout << "txxx " << query.GetNumVertices() << "\n";
+    std::cout << "t " << query.GetNumVertices() << "\n";
 
     // find a root_vertex
-    size_t root_vertex = ordering(data,query,cs)[0];
+    size_t root_vertex = 0;
+    size_t factor = cs.GetCandidateSize(0)/query.GetDegree(0);
+    for (size_t i = 0; i < query.GetNumVertices(); ++i) {
+        if (factor > cs.GetCandidateSize(i)/query.GetDegree(i)){
+            factor = cs.GetCandidateSize(i)/query.GetDegree(i);
+            root_vertex = i;
+        }
+    }
     //=========================print ===============================
 //    std::cout << "root vertex : " << root_vertex << std::endl;
     std::vector<size_t> embedding;
@@ -41,15 +48,18 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
     size_t endOffset = query.GetNeighborEndOffset(u);
     Vertex next_vertex; bool isEnd = true;
     size_t factor = ULONG_MAX;
-    static size_t index = 0;
     for(size_t i = startOffset; i <endOffset; i++){
         Vertex uNeighbor = query.GetNeighbor(i);
         if(embedding[uNeighbor] != ULONG_MAX){
             visited.push_back(uNeighbor);
         }else{
             //visited neigbor X
-            next_vertex = ordering(data,query,cs)[++index];
-            isEnd = false;
+            size_t argmin = cs.GetCandidateSize(uNeighbor)/query.GetDegree(uNeighbor);
+            if(factor > argmin){
+                next_vertex = uNeighbor;
+                factor = argmin;
+                isEnd = false;
+            }
         }
     }
 
@@ -60,7 +70,10 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
         size_t factor = ULONG_MAX;
         for (size_t i = 0; i < query.GetNumVertices(); ++i) {
             if(embedding[i] == ULONG_MAX) {
-                next_vertex = ordering(data,query,cs)[i];
+                if (factor > cs.GetCandidateSize(i) / query.GetDegree(i)) {
+                    factor = cs.GetCandidateSize(i) / query.GetDegree(i);
+                    next_vertex = i;
+                }
             }
         }
         std::cout<< "next vertexs with random : " << next_vertex << std::endl;
@@ -154,23 +167,6 @@ bool Backtrack::check(const Graph &data, const Graph &query, const std::vector<s
     }
     return isValid;
 }
-
-std::vector<size_t> Backtrack::ordering(const Graph &data, const Graph &query, const CandidateSet &cs)
-{
-    std::vector<size_t> factor;
-    factor.resize(query.GetNumVertices(), 0);
-
-    for(int i = 0; i<query.GetNumVertices(); i++)
-    {
-        factor[i] = cs.GetCandidateSize(i)/query.GetDegree(i);
-    }
-
-    sort(factor.begin(), factor.end());
-    return factor;
-}
-
-
-
 //void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 //                                const CandidateSet &cs) {
 //  std::cout << "t " << query.GetNumVertices() << "\n";
@@ -266,6 +262,5 @@ std::vector<size_t> Backtrack::ordering(const Graph &data, const Graph &query, c
 //
 //
 //}
-
 
 

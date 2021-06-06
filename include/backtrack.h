@@ -21,7 +21,7 @@ class Backtrack {
                     const CandidateSet &cs, Vertex u, std::vector<size_t> embedding);
   bool check(const Graph &data, const Graph &query, const std::vector<size_t> embedding);
 
-  std::vector<size_t> ordering(const Graph &data, const Graph &query, const CandidateSet &cs);
+//  std::vector<size_t> ordering(const Graph &data, const Graph &query, const CandidateSet &cs);
 
 
 private:
