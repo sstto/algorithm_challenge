@@ -18,19 +18,14 @@ class Backtrack {
   void PrintAllMatches(const Graph &data, const Graph &query,
                        const CandidateSet &cs);
   void backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
-                    Vertex u, std::vector<size_t> embedding, std::vector<Vertex> &nV, std::vector<std::vector<Vertex>> &nVisit, Vertex prev);
+                    Vertex u, std::vector<size_t> embedding);
   bool check(const Graph &data, const Graph &query, const std::vector<size_t> embedding);
-
-//  bool compare(const std::pair<Vertex,size_t> &a, const std::pair<Vertex,size_t> &b);
-
-//  bool compare(Vertex& u, Vertex& v);
-
-//  std::vector<size_t> ordering(const Graph &data, const Graph &query, const CandidateSet &cs);
 
 
 private:
     int count = 0;
-
+    std::vector<Vertex> nV;
+    std::vector<std::vector<Vertex>> nVisit;
 };
 
 #endif  // BACKTRACK_H_

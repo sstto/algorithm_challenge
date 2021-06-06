@@ -40,11 +40,15 @@ vector
 common.h
 ../include/common.h
 
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/backtrack.cc
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/main.cc
 backtrack.h
-/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/backtrack.h
-limits.h
--
-algorithm
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/backtrack.h
+candidate_set.h
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/candidate_set.h
+common.h
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/common.h
+graph.h
+/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/graph.h
+sstream
 -
 
