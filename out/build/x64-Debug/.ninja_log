@@ -1,6 +1,0 @@
-# ninja log v5
-48	1174	6444437865380876	main/CMakeFiles/program.dir/main.cc.obj	df906353c12200a9
-22	1234	6444437865779824	main/CMakeFiles/program.dir/__/src/graph.cc.obj	87e4131c6656f852
-32	1189	6444437865420786	main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj	5cfb8da6fb4f6099
-6	1217	6444437865580349	main/CMakeFiles/program.dir/__/src/backtrack.cc.obj	1483f7b44b97d54d
-1256	2026	6444437873736108	main/program.exe	98f532f16f12d850
