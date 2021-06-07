@@ -120,7 +120,7 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
             //check(data, query, embedding);
             count +=1;
             if(count == 100000){
-                std::cout << "count = 100000" << std::endl;
+//                std::cout << "count = 100000" << std::endl;
 //                finish = clock();
 //                double duration = (double)(finish-start) / CLOCKS_PER_SEC;
 //                std::cout << duration << " sec" << std::endl;

@@ -292,7 +292,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2
+CMAKE_HOME_DIRECTORY:INTERNAL=/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2
 //ADVANCED property for variable: CMAKE_INSTALL_NAME_TOOL
 CMAKE_INSTALL_NAME_TOOL-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
