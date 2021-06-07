@@ -67,7 +67,7 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
         }
 
         if(isEnd && (it_v != embedding.end())){
-            size_t factor = ULONG_MAX;
+            factor = ULONG_MAX;
             for (size_t i = 0; i < query.GetNumVertices(); ++i) {
                 if(embedding[i] == ULONG_MAX) {
                     if (factor > cs.GetCandidateSize(i) / query.GetDegree(i)) {
