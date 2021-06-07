@@ -6,7 +6,7 @@
 #include "backtrack.h"
 #include <limits.h>
 #include <algorithm>
-
+clock_t start, finish;
 Backtrack::Backtrack() {
     count = 0;
 }
@@ -14,6 +14,8 @@ Backtrack::~Backtrack() {}
 
 void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
                                 const CandidateSet &cs) {
+
+    start = clock();
     std::cout << "t " << query.GetNumVertices() << "\n";
     nV.resize(query.GetNumVertices(), INT32_MAX);
     nVisit.resize(query.GetNumVertices());
@@ -37,6 +39,9 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     //=========================print ===============================
     //std::cout << "back tracking start" << std::endl;
     backtracking(data, query, cs, root_vertex, embedding);
+    finish = clock();
+    double duration = (double)(finish-start) / CLOCKS_PER_SEC;
+    std::cout << duration << " sec" << std::endl;
     //=========================print ===============================
 //    std::cout << "back tracking end" << std::endl;
 }
@@ -94,6 +99,9 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
 
         // injective
         size_t candidate = cs.GetCandidate(u, j);
+//        if(prev != INT32_MAX && query.IsNeighbor(prev, u) && !data.IsNeighbor(embedding[prev], candidate)){
+//            continue;
+//        }
 //        if(candidate == 937){
 //            std::cout << "real ";
 //            for(auto it = embedding.begin(); it != embedding.end();it++){
@@ -135,11 +143,14 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
             count +=1;
             if(count == 100000){
                 std::cout << "count = 100000" << std::endl;
+                finish = clock();
+                double duration = (double)(finish-start) / CLOCKS_PER_SEC;
+                std::cout << duration << " sec" << std::endl;
                 exit(0);
             }
-            if(j == cs.GetCandidateSize(u)-1){
-                return;
-            }
+//            if(j == cs.GetCandidateSize(u)-1){
+//                return;
+//            }
         }else{
             backtracking(data, query, cs, next_vertex, embedding);
         }
