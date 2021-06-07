@@ -41,7 +41,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 }
 
 void Backtrack::backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
-                             Vertex u, std::vector<size_t> embedding) {
+                             Vertex u, std::vector<size_t>& embedding) {
 //    std::cout << "vertex 탐방 : " << u <<std::endl;
     std::vector<Vertex> visited;Vertex next_vertex;bool isEnd = true;
     embedding[u] = ULONG_MAX-1;
@@ -111,7 +111,7 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, const Candid
         }
 
         if(isEnd && (it_v == embedding.end())){
-//            std::cout << count <<std::endl;
+            std::cout << count <<std::endl;
             std::cout << "a ";
             for(auto it = embedding.begin(); it != embedding.end();it++){
                 std::cout << *it << " ";
