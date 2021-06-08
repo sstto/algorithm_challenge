@@ -8,12 +8,12 @@
 #include <algorithm>
 #include <queue>
 
-// query tree
+// query tree(double linked list)
 nodeQ::nodeQ(Vertex v, std::vector<Vertex> *next, std::vector<Vertex> *prev)
         : v(v), next(next), prev(prev) {}
 
 
-// global vaarible
+// global variable
 Vertex qRootVertex;
 std::vector<nodeQ *> q;
 std::vector<Vertex> q_sort;
