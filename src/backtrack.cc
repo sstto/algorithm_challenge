@@ -83,15 +83,6 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
         }
     }
 
-    // we have to find inv Root for path size ordering => next null, less degree
-    Vertex qInvRootVertex = qRootVertex;
-    size_t factor = ULONG_MAX;
-    for (auto elem : q) {
-        if (elem->next->empty() && factor > query.GetDegree(elem->GetVertex())) {
-            factor = query.GetDegree(elem->GetVertex());
-            qInvRootVertex = elem->GetVertex();
-        }
-    }
     // make q tree with candidate
 
     for (auto elem : q) {
@@ -211,11 +202,11 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, Vertex embed
             realEmbedding[embedding[2 * i]] = embedding[2 * i + 1];
         }
 
-        std::cout << "a ";
+        printf("a ");
         for (size_t i = 0; i < query.GetNumVertices(); i++) {
-            std::cout << realEmbedding[i] << " ";
+            printf("%lu ", realEmbedding[i]);
         }
-        std::cout << std::endl;
+        printf("\n");
         //=============================debug===============================
 //        std::cout <<check(data, query, realEmbedding) << std::endl;
         //=============================debug===============================
