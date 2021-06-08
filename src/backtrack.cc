@@ -216,6 +216,9 @@ void Backtrack::backtracking(const Graph &data, const Graph &query, Vertex embed
             std::cout << realEmbedding[i] << " ";
         }
         std::cout << std::endl;
+        //=============================debug===============================
+//        std::cout <<check(data, query, realEmbedding) << std::endl;
+        //=============================debug===============================
         return;
     }
 
