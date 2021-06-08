@@ -241,7 +241,8 @@ main/CMakeFiles/program.dir/__/src/backtrack.cc.o: ../src/backtrack.cc \
   /Library/Developer/CommandLineTools/usr/include/c++/v1/__node_handle \
   /Library/Developer/CommandLineTools/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/usr/include/c++/v1/vector \
-  ../include/graph.h
+  ../include/graph.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/queue
 
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.o: ../src/candidate_set.cc \
   ../include/candidate_set.h \
@@ -970,6 +971,8 @@ main/CMakeFiles/program.dir/main.cc.o: ../main/main.cc \
 /Library/Developer/CommandLineTools/usr/include/c++/v1/sstream:
 
 ../src/graph.cc:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/queue:
 
 /Library/Developer/CommandLineTools/usr/include/c++/v1/vector:
 
