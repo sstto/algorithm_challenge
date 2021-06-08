@@ -10,7 +10,7 @@
 
 // query tree
 nodeQ::nodeQ(Vertex v, std::vector<Vertex> *next, std::vector<Vertex> *prev)
-:v(v), next(next), prev(prev){}
+:v(v), next(next),prev(prev){}
 
 Vertex qRootVertex;
 std::vector<nodeQ*> q;
@@ -26,6 +26,8 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
 
     //=============================debug===============================
     clock_t start = clock();
+    //=============================debug===============================
+
     std::cout << "t " << query.GetNumVertices() << "\n";
     //make a q
     for (Vertex i = 0; i < query.GetNumVertices(); i++)
@@ -55,7 +57,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     quForBfs.push(qRootVertex);
     qVisited[qRootVertex] = true;
 
-    while(!q.empty()){
+    while(!quForBfs.empty()){
         Vertex x = quForBfs.front();
         quForBfs.pop();
         visited[x] = true;
@@ -74,24 +76,32 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
             }
         }
     }
-
-    nV.resize(query.GetNumVertices(), INT32_MAX);
-    nVisit.resize(query.GetNumVertices());
-    // find a root_vertex
-    size_t root_vertex = 0;
-    size_t factor = cs.GetCandidateSize(0)/query.GetDegree(0);
-    for (size_t i = 0; i < query.GetNumVertices(); ++i) {
-        if (factor > cs.GetCandidateSize(i)/query.GetDegree(i)){
-            factor = cs.GetCandidateSize(i)/query.GetDegree(i);
-            root_vertex = i;
+    // we have to find inv Root for path size ordering => next null, less degree
+    Vertex qInvRootVertex = qRootVertex;
+    size_t factor = ULONG_MAX;
+    for(auto elem : q){
+        if(elem->next->empty() && factor > query.GetDegree(elem->GetVertex())){
+            factor = query.GetDegree(elem->GetVertex());
+            qInvRootVertex = elem->GetVertex();
         }
     }
+    // make candidate tree based on q
+    for(auto elem : q){
+        elem->candidates->reserve(cs.GetCandidateSize(elem->GetVertex()));
+        for(size_t i=0; i<cs.GetCandidateSize(elem->GetVertex());i++){
+            elem->candidates->push_back(cs.GetCandidate(elem->GetVertex(),i));
+        }
+        std::sort(elem->candidates->begin(), elem->candidates->end());
+    }
+
+
+
 
     std::vector<size_t> embedding;
     embedding.resize(query.GetNumVertices(),ULONG_MAX);
 
 
-    backtracking(data, query, cs, root_vertex, embedding);
+    backtracking(data, query, cs, qRootVertex, embedding);
 //    finish = clock();clock
 //    double duration = (double)(finish-start) / CLOCKS_PER_SEC;
 //    std::cout << duration << " sec" << std::endl;

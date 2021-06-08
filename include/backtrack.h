@@ -36,6 +36,7 @@ public:
     }
     std::vector<Vertex> *prev;
     std::vector<Vertex> *next;
+    std::vector<Vertex> *candidates;
 
     inline Vertex GetVertex();
 
