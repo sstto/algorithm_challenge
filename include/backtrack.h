@@ -17,15 +17,10 @@ class Backtrack {
 
   void PrintAllMatches(const Graph &data, const Graph &query,
                        const CandidateSet &cs);
-  void backtracking(const Graph &data, const Graph &query, const CandidateSet &cs,
-                    Vertex u, std::vector<size_t>& embedding);
+  void backtracking(const Graph &data, const Graph &query,std::vector<Vertex> embedding,std::vector<bool> embeddingInfo, size_t embeddingCtr);
   bool check(const Graph &data, const Graph &query, const std::vector<size_t> embedding);
 
 
-private:
-    int count = 0;
-    std::vector<Vertex> nV;
-    std::vector<std::vector<Vertex>> nVisit;
 };
 
 class nodeQ{
