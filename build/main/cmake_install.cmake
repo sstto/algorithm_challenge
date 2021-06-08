@@ -1,4 +1,4 @@
-# Install script for directory: /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main
+# Install script for directory: /Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
