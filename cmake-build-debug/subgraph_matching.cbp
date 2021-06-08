@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="subgraph_matching"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\main\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="program">
+				<Option output="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/program" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/Makefile&quot;  VERBOSE=1 program"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="program/fast">
+				<Option output="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/program" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/Makefile&quot;  VERBOSE=1 program/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/sim-yeong-in/Google\ 드라이브/2021-1/알고리즘/hw2/cmake-build-debug/main/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/main.cc">
+			<Option target="program"/>
+		</Unit>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/backtrack.cc">
+			<Option target="program"/>
+		</Unit>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/candidate_set.cc">
+			<Option target="program"/>
+		</Unit>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/src/graph.cc">
+			<Option target="program"/>
+		</Unit>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/sim-yeong-in/Google 드라이브/2021-1/알고리즘/hw2/main/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\main\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

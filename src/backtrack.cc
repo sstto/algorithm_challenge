@@ -85,15 +85,26 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
             qInvRootVertex = elem->GetVertex();
         }
     }
-    // make candidate tree based on q
+    // make q tree with candidate
+    std::vector<nodeQ*> csInfo;
     for(auto elem : q){
         elem->candidates->reserve(cs.GetCandidateSize(elem->GetVertex()));
         for(size_t i=0; i<cs.GetCandidateSize(elem->GetVertex());i++){
             elem->candidates->push_back(cs.GetCandidate(elem->GetVertex(),i));
         }
         std::sort(elem->candidates->begin(), elem->candidates->end());
+        csInfo.push_back(elem);
     }
-
+    for(size_t i = 0; i< q.size();i++){
+        nodeQ* cur = q[i];
+        for(Vertex nextElem : *cur->next){
+           cur->nextNodes->push_back(csInfo.at(nextElem));
+        }
+        for(Vertex prevElem : *cur->next){
+            cur->prevNodes->push_back(csInfo.at(prevElem));
+        }
+    }
+    nodeQ* qRootNode = csInfo[qRootVertex];
 
 
 

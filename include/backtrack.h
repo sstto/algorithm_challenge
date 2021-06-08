@@ -36,6 +36,8 @@ public:
     }
     std::vector<Vertex> *prev;
     std::vector<Vertex> *next;
+    std::vector<nodeQ*>* nextNodes;
+    std::vector<nodeQ*>* prevNodes;
     std::vector<Vertex> *candidates;
 
     inline Vertex GetVertex();
