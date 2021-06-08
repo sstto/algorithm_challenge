@@ -32,7 +32,7 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
                                 const CandidateSet &cs) {
     std::cout << "t " << query.GetNumVertices() << "\n";
     //=============================debug===============================
-    clock_t start = clock();
+//    clock_t start = clock();
     //=============================debug===============================
 
     //make a q
@@ -151,10 +151,10 @@ void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
     backtracking(data, query, embedding, 0);
 
     //=============================debug===============================
-    clock_t finish = clock();
-    double duration = (double)(finish-start) / CLOCKS_PER_SEC;
-    std::cout << duration << " sec" << std::endl;
-    std::cout <<count << std::endl;
+//    clock_t finish = clock();
+//    double duration = (double)(finish-start) / CLOCKS_PER_SEC;
+//    std::cout << duration << " sec" << std::endl;
+//    std::cout <<count << std::endl;
     //=============================debug===============================
 }
 
